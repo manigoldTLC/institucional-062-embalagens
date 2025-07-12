@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { environment } from '../../../environments/environment';
+import { config } from '../../../configs/config';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +19,7 @@ export class Contact {
   private http = inject(HttpClient);
 
   contactForm: FormGroup;
-  formspreeEndpoint = environment.formspreeEndpoint;
+  formspreeEndpoint = config.formspreeEndpoint;
 
   constructor() {
     this.contactForm = this.fb.group({

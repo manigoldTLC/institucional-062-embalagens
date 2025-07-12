@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../../environments/environment';
+import { config } from '../../../configs/config';
 
 @Component({
   selector: 'app-floating-cta',
@@ -12,9 +12,9 @@ import { environment } from '../../../environments/environment';
 export class FloatingCta implements OnInit {
   isTooltipVisible = false;
   shouldRenderTooltip = false;
-  private readonly tooltipDelay = 5000;
+  private readonly tooltipDelay = 7000;
 
-  whatsappUrl = `https://wa.me/${environment.whatsappNumber}?text=Ol%C3%A1%21+Gostaria+de+um+or%C3%A7amento.`;
+  whatsappUrl = `https://wa.me/${config.whatsappNumber}?text=Ol%C3%A1%21+Gostaria+de+um+or%C3%A7amento.`;
 
   ngOnInit(): void {
     setTimeout(() => {

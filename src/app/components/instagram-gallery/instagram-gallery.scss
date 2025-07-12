@@ -1,20 +1,37 @@
 $primary-blue: #0d47a1;
 $bg-light-beige: #f5f0e9;
 $text-dark: #212121;
+$item-count: 8;
+$item-width: 150px;
+$item-gap: 15px;
+
+@keyframes scroll-infinite {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * $item-count * ($item-width + $item-gap)));
+  }
+}
 
 .instagram-section {
   background-color: $bg-light-beige;
-  padding: 60px 0;
+  padding: 60px 20px;
   text-align: center;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .section-title {
-  font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
   color: $primary-blue;
   text-transform: uppercase;
   margin: 0;
+  line-height: 1.2;
 }
 
 .instagram-handle {
@@ -30,21 +47,46 @@ $text-dark: #212121;
   }
 }
 
-.gallery-container {
+.gallery-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, $bg-light-beige, transparent);
+  }
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, $bg-light-beige, transparent);
+  }
+}
+
+.gallery-track {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 10px;
-  gap: 15px;
-  &::-webkit-scrollbar { display: none; }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  gap: $item-gap;
+  width: calc(2 * $item-count * ($item-width + $item-gap));
+  
+  animation: scroll-infinite 20s linear infinite;
+
+  .gallery-wrapper:hover & {
+    animation-play-state: paused;
+  }
 }
 
 .gallery-item {
-  flex: 0 0 150px;
-  height: 150px;
-  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: $item-width;
+  height: $item-width;
   position: relative;
   display: block;
   border-radius: 8px;
@@ -63,7 +105,7 @@ $text-dark: #212121;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     display: flex;
     justify-content: center;
@@ -71,6 +113,11 @@ $text-dark: #212121;
     font-size: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+
+    img {
+      width: 38px;
+      height: 38px;
+    }
   }
 
   &:hover {
@@ -80,14 +127,5 @@ $text-dark: #212121;
     .overlay {
       opacity: 1;
     }
-  }
-}
-
-@media(min-width: 1300px) {
-  .gallery-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    overflow-x: hidden;
-    justify-content: center;
   }
 }

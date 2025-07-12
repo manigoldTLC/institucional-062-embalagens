@@ -5,10 +5,15 @@ $text-dark: #212121;
 $background-light: #f4f4f4;
 
 .about-section {
-  display: flex;
-  flex-wrap: wrap;
   background-color: $background-light;
   padding: 60px 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-content {
@@ -16,7 +21,6 @@ $background-light: #f4f4f4;
   padding-right: 40px;
 
   .section-title {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     color: $primary-blue;
     font-weight: 800;
@@ -66,10 +70,10 @@ $background-light: #f4f4f4;
   justify-content: center;
   align-items: center;
 
-  .whatsapp-icon {
-    font-size: 4rem;
+  img {
+    width: 80px;
+    height: 80px;
     margin-bottom: 1rem;
-    color: #25d366; 
   }
 
   .whatsapp-title {
@@ -100,7 +104,7 @@ $background-light: #f4f4f4;
 }
 
 @media (max-width: 992px) {
-  .about-section {
+  .container {
     flex-direction: column;
   }
   .about-content {

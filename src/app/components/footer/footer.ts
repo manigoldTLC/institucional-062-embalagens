@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { environment } from '../../../environments/environment';
+import { config } from '../../../configs/config';
 
 interface InstitutionalLink {
   text: string;
@@ -28,7 +28,7 @@ interface SocialLink {
 })
 export class Footer {
   currentYear = new Date().getFullYear();
-  whatsappBaseUrl = `https://wa.me/${environment.whatsappNumber}?text=`;
+  whatsappBaseUrl = `https://wa.me/${config.whatsappNumber}?text=`;
 
   constructor(private viewportScroller: ViewportScroller) {}
 
@@ -46,7 +46,7 @@ export class Footer {
 
   socialLinks: SocialLink[] = [
     { url: 'https://instagram.com/062embalagens', ariaLabel: 'Instagram', icon: 'assets/icons/icon-instagram.svg' },
-    { url: `https://wa.me/${environment.whatsappNumber}`, ariaLabel: 'WhatsApp', icon: 'assets/icons/icon-whatsapp.svg' }
+    { url: `https://wa.me/${config.whatsappNumber}`, ariaLabel: 'WhatsApp', icon: 'assets/icons/icon-whatsapp.svg' }
   ];
 
   scrollToSection(fragment: string, event: Event): void {

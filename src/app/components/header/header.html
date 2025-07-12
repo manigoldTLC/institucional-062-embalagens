@@ -45,10 +45,7 @@
       <ul>
         @for(link of navLinks; track link.fragment) {
         <li>
-          <a
-            [routerLink]="['/']"
-            [fragment]="link.fragment"
-            (click)="closeMenu()"
+          <a href="#" (click)="scrollToSection(link.fragment, $event)"
             >{{ link.label }}</a
           >
         </li>
