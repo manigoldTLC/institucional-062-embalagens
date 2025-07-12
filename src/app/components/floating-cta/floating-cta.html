@@ -1,0 +1,25 @@
+<div class="floating-cta-wrapper">
+
+  @if (shouldRenderTooltip && isTooltipVisible) {
+    <div class="tooltip-message">
+      <span>Precisa de ajuda?</span>
+      <button
+        class="close-tooltip"
+        (click)="closeTooltip()"
+        aria-label="Fechar mensagem"
+      >
+        &times;
+      </button>
+    </div>
+  }
+
+  <a
+    [href]="whatsappUrl"
+    target="_blank"
+    aria-label="Fale conosco pelo WhatsApp"
+    class="whatsapp-button"
+  >
+    <img src="assets/icons/icon-whatsapp-green.svg" alt="Ícone WhatsApp" />
+  </a>
+
+</div>

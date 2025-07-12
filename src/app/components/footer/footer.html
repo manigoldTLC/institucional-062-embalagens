@@ -1,0 +1,51 @@
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-column about-column">
+      <img src="assets/images/logo-062-embalagens-branca.png" alt="Logo 062 Embalagens" class="footer-logo">
+      <p>A solução completa em embalagens, descartáveis e papelaria para o seu negócio em Goiânia.</p>
+      <div class="social-links">
+        @for(social of socialLinks; track social.ariaLabel) {
+          <a [href]="social.url" target="_blank" [attr.aria-label]="social.ariaLabel">
+            <img [src]="social.icon" class="social-icon">
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="footer-column links-column">
+      <h4>Institucional</h4>
+      <ul>
+        @for(link of institutionalLinks; track link.fragment) {
+          <li>
+            <a href="#" (click)="scrollToSection(link.fragment, $event)">{{ link.text }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer-column links-column">
+      <h4>Produtos</h4>
+      <ul>
+        @for(link of productLinks; track link.text) {
+          <li>
+            <a [href]="whatsappBaseUrl + link.whatsappMessage" target="_blank">{{ link.text }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer-column contact-column">
+      <h4>Fale Conosco</h4>
+      <ul>
+        <li>Av. Anhanguera, 7840 - St. Campinas, Goiânia - GO</li>
+        <li>(62) 9 9152-5978 (WhatsApp)</li>
+        <li>062embalagens&#64;gmail.com</li>
+        <li>Ter à Sex: 08h - 17:30h | Sáb: 08h - 15h</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} 062 Embalagens. Todos os direitos reservados.</p>
+  </div>
+</footer>

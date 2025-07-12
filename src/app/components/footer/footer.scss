@@ -1,0 +1,124 @@
+$primary-blue: #0d47a1;
+$bg-footer: #0a3a82; 
+$text-light: #ffffff;
+$text-muted: #c5d6f0; 
+$accent-yellow: #ffd600;
+
+.site-footer {
+  background-color: $bg-footer;
+  color: $text-muted;
+  padding-top: 60px;
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.footer-column {
+  h4 {
+    color: $text-light;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: $accent-yellow;
+    }
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    i {
+      margin-top: 5px;
+      color: $accent-yellow;
+    }
+  }
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $text-light;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba($text-light, 0.1);
+    color: $text-light;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    
+    &:hover {
+      background-color: $accent-yellow;
+      transform: scale(1.05);
+    }
+
+    .social-icon {
+      width: 20px;
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    text-align: left;
+  }
+}

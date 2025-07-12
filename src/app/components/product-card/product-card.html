@@ -1,0 +1,12 @@
+<article class="product-card">
+  <figure class="product-card__figure">
+    <img [src]="product.imageUrl" [alt]="product.imageAlt" class="product-card__image">
+  </figure>
+  <div class="product-card__body">
+    <h3 class="product-card__name">{{ product.name }}</h3>
+    <p class="product-card__description">{{ product.description }}</p>
+    <a [href]="whatsappUrl" target="_blank" class="product-card__button">
+      Orçar no WhatsApp
+    </a>
+  </div>
+</article>

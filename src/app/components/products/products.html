@@ -1,0 +1,27 @@
+<section class="products-section">
+  <div class="container">
+    <span class="pre-title">NOSSOS PRINCIPAIS PRODUTOS</span>
+    <h2 class="section-title">CONHEÇA NOSSAS SOLUÇÕES</h2>
+
+    @if (products$ | async; as products) {
+      <div class="products-grid">
+        @for (product of products; track product.id) {
+          <app-product-card
+            [product]="product"
+            [whatsappUrl]="whatsappBaseUrl + product.whatsappMessage">
+          </app-product-card>
+        } @empty {
+          <p class="empty-state">Nenhum produto em destaque no momento.</p>
+        }
+      </div>
+    } @else {
+      <div class="loading-state">
+        <p>Carregando produtos...</p>
+      </div>
+    }
+
+    <!-- <div class="view-more-wrapper">
+      <a routerLink="/produtos" class="view-more-button">Ver todos os produtos</a>
+    </div> -->
+  </div>
+</section>

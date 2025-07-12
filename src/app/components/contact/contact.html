@@ -1,0 +1,46 @@
+<section id="contato" class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="pre-title">TEM ALGUMA DÚVIDA?</span>
+      <h2 class="section-title">ENTRE EM CONTATO</h2>
+    </div>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Nossa Localização</h3>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.377217262252!2d-49.26050422508246!3d-16.657996684110035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef3386d755bb1%3A0x52e26da09c66248e!2s062%20Embalagens%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1752115186020!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <ul class="info-list">
+          <li><img src="assets/icons/icon-map.svg" alt="Ícone de Mapa"> Rua 44, Galeria Hyper Modas, Setor Norte Ferroviário, Goiânia - GO</li>
+          <li><img src="assets/icons/icon-phone.svg" alt="Ícone de Telefone"> (62) 9 9152-5978</li>
+          <li><img src="assets/icons/icon-email.svg" alt="Ícone de Email">{{'062embalagens@gmail.com'}}</li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h3>Envie uma Mensagem</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Seu Nome</label>
+            <input type="text" id="name" formControlName="name" placeholder="Digite seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="contactInfo">Seu E-mail</label>
+            <input type="email" id="contactInfo" formControlName="contactInfo" placeholder="exemplo@email.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Sua Mensagem</label>
+            <textarea id="message" formControlName="message" rows="6" placeholder="Como podemos ajudar?"></textarea>
+          </div>
+          <button type="submit" class="submit-button" [disabled]="contactForm.invalid">
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

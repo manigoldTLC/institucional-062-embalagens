@@ -1,0 +1,11 @@
+<section class="trust-bar-section">
+  @for(badge of badges; track badge.title) {
+    <div class="badge-item">
+      <i [class]="badge.iconClass"></i>
+      <div class="badge-text">
+        <h3>{{ badge.title }}</h3>
+        <p>{{ badge.description }}</p>
+      </div>
+    </div>
+  }
+</section>

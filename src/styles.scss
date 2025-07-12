@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+// ------------------------------------
+// 🎨 Cores
+// ------------------------------------
+$primary-color: #003087; // Azul principal
+$secondary-color: #fbbf24; // Amarelo destaque
+$background-color: #ffffff;
+$text-color: #1f2937;
+$light-gray: #f3f4f6;
+
+// ------------------------------------
+// 🔤 Tipografia
+// ------------------------------------
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-title: 32px;
+$font-size-subtitle: 20px;
+$font-size-small: 14px;
+
+// ------------------------------------
+// 🧩 Mixins
+// ------------------------------------
+@mixin flex-center($direction: row, $gap: 1rem) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin section-padding {
+  padding: 4rem 2rem;
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+// ------------------------------------
+// ✨ Estilos Globais
+// ------------------------------------
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-color;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: $font-size-title;
+}
+
+h2 {
+  font-size: $font-size-subtitle;
+}
+
+// ------------------------------------
+// 🔗 Botão Padrão
+// ------------------------------------
+.button-primary {
+  background-color: $secondary-color;
+  color: #000;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// ------------------------------------
+// 📦 Seções
+// ------------------------------------
+.hero {
+  @include section-padding;
+  background-color: $light-gray;
+
+  @include mobile {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+
+.products {
+  @include section-padding;
+
+  .product-list {
+    @include flex-center(row, 2rem);
+    flex-wrap: wrap;
+
+    .product-item {
+      max-width: 200px;
+      text-align: center;
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
+
+  @include mobile {
+    .product-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.about-us {
+  @include section-padding;
+  background-color: $light-gray;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.contact {
+  @include section-padding;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include mobile {
+    font-size: $font-size-small;
+  }
+}

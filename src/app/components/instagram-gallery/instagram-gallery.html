@@ -1,0 +1,17 @@
+<section class="instagram-section">
+  <h2 class="section-title">SIGA-NOS NO INSTAGRAM</h2>
+  <a [href]="'https://instagram.com/' + instagramUsername" target="_blank" class="instagram-handle">
+    &#64;{{ instagramUsername }}
+  </a>
+  
+  <div class="gallery-container">
+    @for(post of instagramPosts; track post.id) {
+      <a [href]="post.postUrl" target="_blank" class="gallery-item">
+        <img [src]="post.imageUrl" [alt]="post.altText" loading="lazy">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </a>
+    }
+  </div>
+</section>

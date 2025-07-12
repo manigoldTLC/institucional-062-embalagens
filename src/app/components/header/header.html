@@ -1,0 +1,68 @@
+<header
+  class="site-header"
+  [class.scrolled]="isHeaderScrolled"
+  [class.menu-open]="isMenuOpen"
+>
+  <div class="container">
+    <a routerLink="/" (click)="closeMenu()" class="logo">
+      <img
+        src="assets/images/logo-062-embalagens-branca.png"
+        alt="Logo 062 Embalagens"
+      />
+    </a>
+
+    <nav class="desktop-nav">
+      <ul>
+        @for(link of navLinks; track link.fragment) {
+        <li>
+          <a href="#" (click)="scrollToSection(link.fragment, $event)"
+            >{{ link.label }}</a
+          >
+        </li>
+        }
+      </ul>
+    </nav>
+
+    <a
+      href="https://wa.me/5562991525978"
+      target="_blank"
+      class="cta-button desktop-cta"
+    >
+      Fale Conosco
+    </a>
+
+    <button
+      class="mobile-menu-toggle"
+      (click)="toggleMenu()"
+      aria-label="Abrir menu"
+    >
+      <img src="assets/icons/icon-menu.svg" alt="Ícone de menu" />
+    </button>
+  </div>
+
+  <div class="mobile-nav-overlay">
+    <nav class="mobile-nav">
+      <ul>
+        @for(link of navLinks; track link.fragment) {
+        <li>
+          <a
+            [routerLink]="['/']"
+            [fragment]="link.fragment"
+            (click)="closeMenu()"
+            >{{ link.label }}</a
+          >
+        </li>
+        }
+        <li>
+          <a
+            href="https://wa.me/5562991525978"
+            target="_blank"
+            class="cta-button mobile-cta"
+          >
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,110 @@
+$primary-blue: #0d47a1;
+$accent-yellow: #ffd600;
+$text-light: #ffffff;
+$text-dark: #212121;
+$background-light: #f4f4f4;
+
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $background-light;
+  padding: 60px 20px;
+}
+
+.about-content {
+  flex: 2;
+  padding-right: 40px;
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: $primary-blue;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $text-dark;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+
+  .feature-item {
+    text-align: center;
+    img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+    .feature-name {
+      display: block;
+      font-weight: 600;
+      color: $text-dark;
+    }
+  }
+}
+
+.whatsapp-cta-block {
+  flex: 1;
+  background-color: #ffffff; 
+  color: $text-dark; 
+  border-radius: 12px;
+  border: 3px solid $primary-blue; 
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .whatsapp-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #25d366; 
+  }
+
+  .whatsapp-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: $primary-blue; 
+  }
+
+  .whatsapp-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .whatsapp-button {
+    background-color: #25d366;
+    color: $text-light;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+  }
+  .about-content {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+}
