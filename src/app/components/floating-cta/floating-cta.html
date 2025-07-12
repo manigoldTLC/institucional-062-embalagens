@@ -1,15 +1,4 @@
 <div class="floating-cta-wrapper">
-  <div *ngIf="shouldRenderTooltip" class="tooltip-message" [class.visible]="isTooltipVisible">
-    <span>Precisa de ajuda?</span>
-    <button
-      class="close-tooltip"
-      (click)="closeTooltip()"
-      aria-label="Fechar mensagem"
-    >
-      &times;
-    </button>
-  </div>
-
   <a
     [href]="whatsappUrl"
     target="_blank"
